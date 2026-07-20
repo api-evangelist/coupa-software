@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/oauth-2.0-and-oidc
+docs: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/oauth-2.0-and-oidc
+summary:
+  types: [oauth2, openIdConnect]
+  current: OAuth 2.0 / OpenID Connect (OIDC)
+  deprecated: [apiKey]
+  notes: >-
+    Coupa has transitioned the Core API from static API keys to OAuth 2.0 with OpenID Connect
+    (OIDC). API keys are deprecated: existing keys must be migrated to OAuth/OIDC clients and
+    revoked under Setup > API Keys. OAuth/OIDC clients are configured per Coupa instance.
+schemes:
+  - name: OAuth2 / OIDC
+    type: oauth2
+    description: >-
+      OpenID Connect (an authentication layer on top of OAuth 2.0) is the required protocol for
+      new Core API integrations. OIDC clients are created and managed within the Coupa instance
+      administration (OpenID Connect Clients). Coupa documents OIDC client setup patterns for
+      NetSuite OAuth and Okta user provisioning.
+    sources: [docs]
+  - name: API Key (deprecated)
+    type: apiKey
+    in: header
+    parameter: X-COUPA-API-KEY
+    deprecated: true
+    description: >-
+      Legacy static API-key header authentication. Deprecated in favor of OAuth 2.0 / OIDC;
+      remaining keys should be transitioned to OAuth clients and revoked.
+    sources: [docs]
