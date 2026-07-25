@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api
+api: Coupa Core API
+versioning:
+  scheme: instance-release
+  notes: >-
+    The Coupa Core API ships as part of the versioned Coupa SaaS platform, which follows a
+    scheduled release train. The API surface tracks the customer's Coupa instance release
+    rather than an independently path-versioned API.
+deprecation:
+  policy_url: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/oauth-2.0-and-oidc
+  documented: true
+  notes: >-
+    Coupa has a documented deprecation of static API-key authentication for the Core API:
+    "API keys are deprecated. You must transition any existing keys to OAuth clients and revoke
+    the keys under Setup > API Keys." Integrations must migrate to OAuth 2.0 / OIDC.
+  deprecated_features:
+    - name: API Key authentication (X-COUPA-API-KEY)
+      replacement: OAuth 2.0 / OIDC clients
+sla:
+  url: null
+  notes: SLA / uptime commitments are handled via enterprise contract; no public SLA page confirmed.
+status_page: null
+deprecated_operations: []

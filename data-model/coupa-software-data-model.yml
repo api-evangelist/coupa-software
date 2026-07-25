@@ -1,0 +1,111 @@
+generated: '2026-07-18'
+method: searched
+source: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/resources
+api: Coupa Core API
+note: >-
+  Entity set and relationships derived from the documented Coupa Core API resource catalog and
+  its nested-endpoint reference patterns. Coupa does not publish a machine-readable OpenAPI
+  schema, so relationships reflect the documented object model rather than a spec derivation.
+entities:
+  - name: PurchaseOrder
+    endpoint: /purchase_orders
+    relationships:
+      - type: has_many
+        target: PurchaseOrderLine
+        via: /purchase_orders/{id}/lines
+      - type: belongs_to
+        target: Supplier
+        via: supplier
+      - type: belongs_to
+        target: Requisition
+        via: requisition
+  - name: Requisition
+    endpoint: /requisitions
+    relationships:
+      - type: has_many
+        target: RequisitionLine
+        via: lines
+      - type: belongs_to
+        target: User
+        via: requested_by
+  - name: Invoice
+    endpoint: /invoices
+    relationships:
+      - type: has_many
+        target: InvoiceLine
+        via: lines
+      - type: belongs_to
+        target: Supplier
+        via: supplier
+      - type: belongs_to
+        target: PurchaseOrder
+        via: purchase_order
+  - name: Supplier
+    endpoint: /suppliers
+    relationships:
+      - type: has_many
+        target: Address
+        via: /suppliers/{id}/addresses
+      - type: has_many
+        target: BusinessEntity
+        via: business_entities
+  - name: User
+    endpoint: /users
+    relationships:
+      - type: belongs_to
+        target: Department
+        via: department
+  - name: Expense
+    endpoint: /expenses
+    relationships:
+      - type: belongs_to
+        target: User
+        via: user
+  - name: Contract
+    endpoint: /contracts
+    relationships:
+      - type: belongs_to
+        target: Supplier
+        via: supplier
+  - name: Receipt
+    endpoint: /receipts
+    relationships:
+      - type: belongs_to
+        target: PurchaseOrder
+        via: purchase_order
+  - name: Account
+    endpoint: /accounts
+    relationships: []
+  - name: Department
+    endpoint: /departments
+    relationships: []
+  - name: BusinessEntity
+    endpoint: /business_entities
+    relationships: []
+  - name: Address
+    endpoint: /addresses
+    relationships: []
+reference_data:
+  - Accounts
+  - Addresses
+  - Business Entities
+  - Departments
+  - Items
+  - Projects
+  - Suppliers
+  - Users
+  - Tax Registrations
+  - Currencies
+  - Exchange Rates
+  - Payment Terms
+transactional:
+  - Purchase Orders
+  - Requisitions
+  - Invoices
+  - Contracts
+  - Expenses
+  - Approvals
+  - Receipts
+  - Inventory Transactions
+  - Advance Ship Notices
+  - Work Confirmations

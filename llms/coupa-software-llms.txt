@@ -1,0 +1,25 @@
+# Coupa Software
+
+> Coupa Software is a business spend management (BSM) platform unifying procurement, invoicing, expense management, payments, supplier management, sourcing, and contract lifecycle management. The Coupa Core API is a UTF-8 RESTful interface (XML and JSON) for creating, reading, updating, and acting on records within a Coupa instance, secured with OAuth 2.0 / OIDC.
+
+## APIs
+
+- [Coupa Core API](https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api): Create, update, and act on individual Coupa records (purchase orders, requisitions, invoices, suppliers, users, expenses, contracts, receipts, and reference data).
+
+## Docs
+
+- [Integration Technical Documentation](https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation): Developer portal for Coupa integrations.
+- [Core API Reference / Resources](https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/resources): Resource catalog and per-object reference.
+- [OAuth 2.0 & OIDC](https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/oauth-2.0-and-oidc): Authentication guide (API keys deprecated).
+
+## Artifacts
+
+- [Authentication profile](authentication/coupa-software-authentication.yml): OAuth 2.0 / OIDC; legacy API key deprecated.
+- [API conventions](conventions/coupa-software-conventions.yml): XML/JSON, offset/limit pagination, field selection, attribute-suffix filtering.
+- [Data model](data-model/coupa-software-data-model.yml): Core entities and relationships.
+- [Lifecycle](lifecycle/coupa-software-lifecycle.yml): Release-train versioning and API-key deprecation.
+- [Conformance](conformance/coupa-software-conformance.yml): OAuth2 / OIDC / REST posture.
+
+## About
+
+- [Coupa Software](https://www.coupa.com): Company website. Acquired by Thoma Bravo in 2023.

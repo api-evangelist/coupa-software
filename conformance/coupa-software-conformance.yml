@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/oauth-2.0-and-oidc
+api: Coupa Core API
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Coupa Core API authenticates with OAuth 2.0 (documented OAuth 2.0 & OIDC integration guide).
+  - id: oidc
+    conforms: true
+    evidence: >-
+      Coupa uses OpenID Connect (OIDC) as the required authentication protocol for Core API
+      integrations, with configurable OpenID Connect Clients.
+  - id: rest
+    conforms: true
+    evidence: Resource-oriented HTTP interface over /api/<resource> endpoints.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No application/problem+json error envelope documented.
+  - id: json-api
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: scim
+    conforms: false

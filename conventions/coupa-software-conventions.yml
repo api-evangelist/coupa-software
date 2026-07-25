@@ -1,0 +1,53 @@
+generated: '2026-07-18'
+method: searched
+source: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api/resources
+docs: https://compass.coupa.com/en-us/products/product-documentation/integration-technical-documentation/the-coupa-core-api
+api: Coupa Core API
+authentication:
+  style: oauth2-oidc
+  ref: authentication/coupa-software-authentication.yml
+content_negotiation:
+  formats: [xml, json]
+  default: xml
+  notes: >-
+    The Core API is a UTF-8 interface that returns XML by default and JSON on request. Coupa
+    documents specific differences between the XML and JSON representations of records.
+pagination:
+  style: offset-limit
+  params:
+    - name: offset
+      description: Zero-based index of the first record to return.
+    - name: limit
+      description: Maximum number of records to return in the page.
+  notes: Large result sets are paged with offset/limit query parameters.
+field_selection:
+  supported: true
+  param: fields
+  notes: Requests can restrict the returned attributes by naming the desired fields.
+filtering:
+  style: attribute-suffix
+  examples:
+    - "<attribute>_greater_than"
+    - "<attribute>_less_than"
+    - "<attribute>_starts_with"
+  notes: >-
+    Records are filtered by appending comparison suffixes to attribute names in the query
+    string. Suffix names shown are representative of Coupa's documented comparison operators.
+resource_references:
+  style: nested-and-id
+  notes: >-
+    Objects reference each other through nested collection endpoints (for example
+    /suppliers/{id}/addresses, /purchase_orders/{id}/lines) and via id/foreign-key fields on
+    the record body.
+idempotency:
+  supported: false
+  notes: Coupa does not document a dedicated idempotency-key header for the Core API.
+error_envelope:
+  ref: null
+  notes: >-
+    Errors are returned in the requested representation (XML or JSON) with an HTTP status code;
+    Coupa does not publish an RFC 9457 problem+json envelope for the Core API.
+cross_links:
+  authentication: authentication/coupa-software-authentication.yml
+  lifecycle: lifecycle/coupa-software-lifecycle.yml
+  data_model: data-model/coupa-software-data-model.yml
